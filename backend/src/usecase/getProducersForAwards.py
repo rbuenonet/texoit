@@ -6,11 +6,12 @@ def getProducersForAwards(session):
     all_movies = [movie.to_dict() for movie in movies]
 
     grouped_by_producer = {}
-    max_interval_producer = None
-    min_interval_producer = None
+    max_interval_producer = []
+    min_interval_producer = []
     max_interval = 0
     min_interval = None
 
+    # separa os anos por producer
     for movie in all_movies:
         producers = [producer.strip() for producer in movie["producers"].split(",") + movie["producers"].split("and")]
         year = movie["year"]
@@ -22,30 +23,38 @@ def getProducersForAwards(session):
 
                 grouped_by_producer[producer].add(year)
     
+    # calcula intervalo de anos por producer
+    grouped_by_producer_intervals = []
     for producer, years_set in grouped_by_producer.items():
         years_list = list(years_set)
         
         if len(years_list) > 1:
-            interval = max(years_list) - min(years_list)
-
-            if interval > max_interval:
-                max_interval = interval
-                max_interval_producer = {
+            for i in range(len(years_list) - 1):
+                interval = {
                     "producer": producer,
-                    "interval": interval,
-                    "previousWin": min(years_list),
-                    "followingWin": max(years_list)
+                    "interval": years_list[i + 1] - years_list[i],
+                    "previousWin": years_list[i],
+                    "followingWin": years_list[i + 1]
                 }
+                grouped_by_producer_intervals.append(interval)
 
-            if min_interval is None or interval < min_interval:
-                min_interval = interval
-                min_interval_producer = {
-                    "producer": producer,
-                    "interval": interval,
-                    "previousWin": min(years_list),
-                    "followingWin": max(years_list)
-                }
+    # cria resposta com maximo e minimo
+    for producer_intervals in grouped_by_producer_intervals:
+        interval = producer_intervals['interval']
 
-    result = {"max": [max_interval_producer], "min": [min_interval_producer]}
+        # maximo
+        if interval == max_interval:
+            max_interval_producer.append(producer_intervals)
+        if interval > max_interval:
+            max_interval = interval
+            max_interval_producer = [producer_intervals]
+        # minimo
+        if interval == min_interval:
+            min_interval_producer.append(producer_intervals)
+        if min_interval is None or interval < min_interval:
+            min_interval = interval
+            min_interval_producer = [producer_intervals]
+
+    result = {"max": max_interval_producer, "min": min_interval_producer}
 
     return jsonify(result)
