@@ -15,7 +15,7 @@ const ListWinIntervalForProducers: React.FC<ListWinIntervalForProducersProps> = 
 
         <TitleTable>Maximum</TitleTable>
         <Table data={max} titles={titles} />
-        <TitleTable>Minimun</TitleTable>
+        <TitleTable>Minimum</TitleTable>
         <Table data={min} titles={titles} />
     </Container>
   );
