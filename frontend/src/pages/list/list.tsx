@@ -81,10 +81,6 @@ const ListPage: React.FC = () => {
     fetchData();
   }, [page, titles]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   if (data === null) {
     return <p>Carregando...</p>;
   }
