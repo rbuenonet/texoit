@@ -29,12 +29,16 @@ const ListPage: React.FC = () => {
     {
       value: '',
       text: "Winner", 
-      options: ["true", "false"],
+      options: ["yes", "no"],
       onChange: (value: string) => changeFilter('Winner', value)
     },
   ]);
 
   const changeFilter = (filter: string, value: string) => {
+    value = filter === 'Winner' ? 
+      (value === 'yes' ? 'true' : 'false' ) :
+      value;
+    setPage(1);
     setTitles(prevTitles => {
       return prevTitles.map(item => {
         if (typeof item === 'string' || (item.text !== filter)) {
