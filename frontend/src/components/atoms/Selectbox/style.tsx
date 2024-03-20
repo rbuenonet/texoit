@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Select = styled.select`
   padding: 10px;
@@ -13,4 +13,4 @@ export const Select = styled.select`
   &:focus {
     border-color: #007bff;
   }
-`;
+`

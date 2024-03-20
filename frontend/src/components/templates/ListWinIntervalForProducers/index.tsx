@@ -1,1 +1,1 @@
-export { default as ListWinIntervalForProducers } from "./ListWinIntervalForProducers";
+export { default as ListWinIntervalForProducers } from './ListWinIntervalForProducers'

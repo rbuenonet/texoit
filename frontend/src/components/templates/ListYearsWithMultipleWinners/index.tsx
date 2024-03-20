@@ -1,1 +1,1 @@
-export { default as ListYearsWithMultipleWinners } from "./ListYearsWithMultipleWinners";
+export { default as ListYearsWithMultipleWinners } from './ListYearsWithMultipleWinners'

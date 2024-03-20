@@ -1,6 +1,6 @@
 export interface ListYearsWithMultipleWinnersProps {
-    content: Array<{
-        year: Number;
-        winnerCount: Number;
-      }>
+  content: Array<{
+    year: Number
+    winnerCount: Number
+  }>
 }

@@ -1,1 +1,1 @@
-export { default as ListMovieWinnerByYear } from "./ListMovieWinnerByYear";
+export { default as ListMovieWinnerByYear } from './ListMovieWinnerByYear'

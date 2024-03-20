@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const DashboardContainer = styled.div`
   display: grid;
@@ -8,4 +8,4 @@ export const DashboardContainer = styled.div`
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
-`;
+`

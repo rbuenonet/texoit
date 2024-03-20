@@ -1,10 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
-const Title: React.FC<{children: ReactNode}> = ({children}) => {
+const Title: React.FC<{ children: ReactNode }> = ({ children }) => {
+  return <h3>{children}</h3>
+}
 
-  return (
-    <h3>{children}</h3>
-  );
-};
-
-export default Title;
+export default Title

@@ -1,1 +1,1 @@
-export { default as ListTopThreeStudiosWithWinners } from "./ListTopThreeStudiosWithWinners";
+export { default as ListTopThreeStudiosWithWinners } from './ListTopThreeStudiosWithWinners'

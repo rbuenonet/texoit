@@ -1,4 +1,4 @@
 export interface ListWinIntervalForProducersProps {
-    min: Array<any>
-    max: Array<any>
+  min: Array<any>
+  max: Array<any>
 }
